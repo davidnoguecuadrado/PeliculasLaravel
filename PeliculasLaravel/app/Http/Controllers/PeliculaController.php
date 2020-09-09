@@ -85,6 +85,7 @@ class PeliculaController extends Controller
      */
     public function destroy(Pelicula $pelicula)
     {
-        //
+        $pelicula = Pelicula::find($pelicula->id);    
+        $pelicula->delete();
     }
 }

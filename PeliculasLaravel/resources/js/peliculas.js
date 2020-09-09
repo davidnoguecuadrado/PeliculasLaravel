@@ -25,6 +25,7 @@ $(document).ready(function () {
 
         table = $('#table').DataTable();
         data = table.row($(this).closest("tr").get(0)).data();
+        console.log(data);
         row=$(this).closest("tr").get(0);
         idPelicula=data[1];
         indice=data[0];
@@ -35,10 +36,12 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '#delete', function(){
-        $('#table').DataTable().row($(this).closest("tr").get(0)).remove().draw();
-        idPelicula=parseInt($(this).parent().parent().children('th').eq(1).text());  
-        row=$(this).closest("tr").get(0);
+        table = $('#table').DataTable();
+        data = table.row($(this).closest("tr").get(0)).data();
+        idPelicula=data[1];
         eliminar();
+        $('#table').DataTable().row($(this).closest("tr").get(0)).remove().draw(); table = $('#table').DataTable();
+       
     });
 
 
@@ -66,7 +69,9 @@ $(document).ready(function () {
 
 
 function eliminar(){
+    $.ajax({ url: '/peliculas/'+idPelicula, method: "DELETE" })
 
+            
 }
 
 function editar(){
