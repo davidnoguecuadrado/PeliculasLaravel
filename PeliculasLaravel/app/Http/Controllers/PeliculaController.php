@@ -36,7 +36,11 @@ class PeliculaController extends Controller
      */
     public function store(Request $request)
     {
-        Pelicula::insert($request);
+        $pelicula=request()->except('_token');
+        
+        $id=Pelicula::insertGetId($pelicula);
+
+        return [$id,$pelicula];
     }
 
     /**

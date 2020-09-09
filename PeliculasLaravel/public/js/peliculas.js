@@ -147,11 +147,12 @@ function editar() {
 }
 
 function add() {
-  pelicula = {
+  $.post("/peliculas", {
     Nombre: $("#nombrePelicula").val(),
     Fecha: $("#fechaPelicula").val()
-  };
-  $.post("/peliculas", pelicula);
+  }, function (result) {
+    $('#table').DataTable().row.add([$('#table').DataTable().rows().count() + 1, result[0], result[1].Nombre, result[1].Fecha, "<button class='btn btn-danger mr-4' id='delete'>Eliminar</button> <button class='btn btn-warning mr-4' id='edit'>Editar</button>"]).draw(false);
+  });
 }
 
 function get() {
