@@ -69,9 +69,7 @@ $(document).ready(function () {
 
 
 function eliminar(){
-    $.ajax({ url: '/peliculas/'+idPelicula, method: "DELETE" })
-
-            
+    $.ajax({ url: '/peliculas/'+idPelicula, method: "DELETE" })     
 }
 
 function editar(){
@@ -85,6 +83,14 @@ function editar(){
         $("#fechaPelicula").val(),
         "<button class='btn btn-danger mr-4' id='delete'>Eliminar</button> <button class='btn btn-warning mr-4' id='edit'>Editar</button>" 
     ] ).draw( false );
+
+    $.ajax({
+        url: '/peliculas/'+idPelicula,
+        type: 'PUT',
+        data: {id:idPelicula,Nombre: $("#nombrePelicula").val(),Fecha:$("#fechaPelicula").val()},
+        success: function(data) {
+        }
+      });
 }
 
 function add(){

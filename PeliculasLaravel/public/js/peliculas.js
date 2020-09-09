@@ -152,6 +152,16 @@ function eliminar() {
 function editar() {
   $('#table').DataTable().row(row).remove().draw();
   $('#table').DataTable().row.add([indice, idPelicula, $("#nombrePelicula").val(), $("#fechaPelicula").val(), "<button class='btn btn-danger mr-4' id='delete'>Eliminar</button> <button class='btn btn-warning mr-4' id='edit'>Editar</button>"]).draw(false);
+  $.ajax({
+    url: '/peliculas/' + idPelicula,
+    type: 'PUT',
+    data: {
+      id: idPelicula,
+      Nombre: $("#nombrePelicula").val(),
+      Fecha: $("#fechaPelicula").val()
+    },
+    success: function success(data) {}
+  });
 }
 
 function add() {

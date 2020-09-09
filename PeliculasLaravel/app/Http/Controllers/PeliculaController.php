@@ -74,7 +74,7 @@ class PeliculaController extends Controller
      */
     public function update(Request $request, Pelicula $pelicula)
     {
-        //
+        Pelicula::where('id',$request->id)->update(['Nombre'=>$request->Nombre,'Fecha'=>$request->Fecha]);
     }
 
     /**
