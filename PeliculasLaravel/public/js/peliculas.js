@@ -97,6 +97,12 @@ var idPelicula = 0;
 var indice = 0;
 var row = "";
 $(document).ready(function () {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $('#table').DataTable();
   $("#warning").hide();
   get();
   $("#add").click(function () {
@@ -118,8 +124,6 @@ $(document).ready(function () {
     eliminar();
   });
   $("#enviar").click(function () {
-    console.log(idPelicula);
-
     if (Number.isInteger(parseInt($("#fechaPelicula").val()))) {
       if (idPelicula == 0) {
         add();
@@ -142,29 +146,22 @@ function editar() {
   $('#table').DataTable().row.add([indice, idPelicula, $("#nombrePelicula").val(), $("#fechaPelicula").val(), "<button class='btn btn-danger mr-4' id='delete'>Eliminar</button> <button class='btn btn-warning mr-4' id='edit'>Editar</button>"]).draw(false);
 }
 
-function add(pelicula) {}
+function add() {
+  pelicula = {
+    Nombre: $("#nombrePelicula").val(),
+    Fecha: $("#fechaPelicula").val()
+  };
+  $.post("/peliculas", pelicula);
+}
 
 function get() {
-  //get lists pelicualas
-  peliculas = [{
-    id: 0,
-    nombre: "juan",
-    edad: 234
-  }, {
-    id: 1,
-    nombre: "paco",
-    edad: 15
-  }, {
-    id: 1,
-    nombre: "paco",
-    edad: 100
-  }];
-  indice = 1;
-  peliculas.forEach(function (pelicula) {
-    $('#table').DataTable().row.add([indice, pelicula.id, pelicula.nombre, pelicula.edad, "<button class='btn btn-danger mr-4' id='delete'>Eliminar</button> <button class='btn btn-warning mr-4' id='edit'>Editar</button>"]).draw(false);
-    indice++;
+  $.get("/peliculas", function (data) {
+    indice = 1;
+    data.forEach(function (pelicula) {
+      $('#table').DataTable().row.add([indice, pelicula.id, pelicula.Nombre, pelicula.Fecha, "<button class='btn btn-danger mr-4' id='delete'>Eliminar</button> <button class='btn btn-warning mr-4' id='edit'>Editar</button>"]).draw(false);
+      indice++;
+    });
   });
-  $('#table').DataTable();
 }
 
 /***/ }),
