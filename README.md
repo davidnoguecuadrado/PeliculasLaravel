@@ -25,5 +25,4 @@ En dicho crup podremos tanto agregar,actualizar y eliminar peliculas , tambien s
 
 -SOLID
 -Clean Code
-
 -Git Flow
