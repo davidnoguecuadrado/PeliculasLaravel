@@ -9,7 +9,7 @@ En dicho crup podremos tanto agregar,actualizar y eliminar peliculas , tambien s
 ## Crear Entorno Desarrollo
 
 - Descargar Wamp https://sourceforge.net/projects/wampserver/files/
-- Instalar composer (Jquery) https://getcomposer.org/
+- Instalar composer https://getcomposer.org/
 - Intalar git https://git-scm.com/
 - Intalar Laravel 'composer global require laravel/installer'
 - npm 'npm install' Dentro del proyecto executar
