@@ -23,6 +23,6 @@ En dicho crup podremos tanto agregar,actualizar y eliminar peliculas , tambien s
 
 ## Metodologia
 
--SOLID
--Clean Code
--Git Flow
+- SOLID
+- Clean Code
+- Git Flow
