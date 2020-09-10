@@ -4,7 +4,7 @@
 
 En este directorio he creado un crud de peliculas utilizando el framework de php Laravel y la libreria de Jquey DataTables aplicando arquitectura MVC
 
-En dicho crup podremos tanto agregar,actualizar y eliminar peliculas , tambien se podran buscar tanto por nombre como por fecha y ordenarlas por los mismos campos 
+En dicho crud podremos tanto agregar, actualizar y eliminar peliculas, tambien se podran buscar tanto por nombre como por fecha y ordenarlas por los mismos campos 
 
 ## Crear Entorno Desarrollo
 
