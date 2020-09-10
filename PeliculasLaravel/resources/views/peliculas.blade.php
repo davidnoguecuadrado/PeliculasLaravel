@@ -21,9 +21,6 @@
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h1>Nueva Pelicula</h1>
-                    </div>
                     <div class="modal-body">
                         <input type="text" class="form-control mb-3" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" id="nombrePelicula" value="">
                         <input type="text" class="form-control" placeholder="Años" aria-label="Años" aria-describedby="basic-addon1" id="fechaPelicula" value="">
